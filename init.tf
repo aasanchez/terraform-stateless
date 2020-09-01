@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "gl-terraform-up-and-running-state"
+  bucket = "infrastructure-tf-states"
   # Enable versioning so we can see the full revision history of our
   # state files
   versioning {
@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "terraform_state" {
 }
 
 resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "terraform-up-and-running-locks"
+  name         = "infrastructure-tf-locks"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
   attribute {
